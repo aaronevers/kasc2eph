@@ -150,7 +150,7 @@ char **Cmatrix(int nrl, int nrh, int ncl, int nch)
 +-------------------------------------------------------------------------+
 | REFERENCE: NUMERICAL RECEPIES IN C                                      |
 +========================================================================*/
-void free_Cmatrix(double **m, int nrl, int ncl)
+void free_Cmatrix(char **m, int nrl, int ncl)
 /* Free a double matrix allocated by dmatrix() : */
 {
     free((char *) (m[nrl]+ncl-1));
@@ -191,7 +191,7 @@ int main(void)
     /* READ THE SIZE AND NUMBER OF MAIN EPHEMERIS: */
     if ((fp0 = fopen(NAME,"r")) == NULL)
     {
-        printf(stderr, "Cannot open %s file.\n",NAME);
+        fprintf(stderr, "Cannot open %s file.\n",NAME);
         return 1;
     };
     fscanf(fp0,"%d",&KSIZE);
@@ -202,7 +202,7 @@ int main(void)
 
     if (T1< SS[1] || T2>SS[2])
     {
-        printf(stderr, "The given time span is not within the allowable time!");
+        fprintf(stderr, "The given time span is not within the allowable time!");
         return 1;
     };
 
@@ -269,7 +269,7 @@ int main(void)
     /* (NAME1):                                                             */
     if ((fp2 = fopen(NAME1,"r")) == NULL)
     {
-        printf(stderr, "Cannot open %s file.\n",NAME1);
+        fprintf(stderr, "Cannot open %s file.\n",NAME1);
         return 1;
     };
 
