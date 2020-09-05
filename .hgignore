@@ -1,0 +1,10 @@
+syntax: glob
+
+*.elc
+*.pyc
+*~
+*.gcode
+.git/**
+.git*
+*.orig
+#*
