@@ -38,7 +38,7 @@
 +-------------------------------------------------------------------------+
 | REFERENCE: %                                                            |
 +========================================================================*/
-void nrerror(int WERT,char error_text[])
+void nrerror(int WERT, const char error_text[])
 {
     fprintf(stderr,"\n\n...Run-time error...");
     fprintf(stderr,"\n%d %s",WERT,error_text);
@@ -167,10 +167,13 @@ int main(void)
     int    KSIZE,I,N,J,NCON,IPT[4][13],LPT[4],NROUT,NUMDE,H1,H2,LAUF;
     int    FIRST = TRUE;
     double T1,T2,SS[4],HILFE,*CVAL,AU,DB2Z,EMRAT;
-    char   **CNAM,*buf1="AU      ",*buf2="EMRAT   ",*buf3="DENUM   ";
-    char   *NAME1 = "            ";
-    char   *NAME  = "            ";
-    char   *NAME2 = "            ";
+    char   **CNAM;
+    const char   *buf1  = "AU      ";
+    const char   *buf2  = "EMRAT   ";
+    const char   *buf3  = "DENUM   ";
+    char   NAME1[] = {"            "};
+    char   NAME[]  = {"            "};
+    char   NAME2[] = {"            "};
     FILE   *fp0,*fp1,*fp2;
     struct
     {
