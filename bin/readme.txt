@@ -20,7 +20,7 @@ Aaron Evers
 *******************************************************************************
 
 
-INSTRODUCTION:
+INTRODUCTION:
 JPL-Planetary and Lunar Ephemeris.
 
 1) Create Binary file from an Ascii file (i.e. ascp2000.200 etc.):
