@@ -379,7 +379,7 @@ int main(void)
     printf("\n\n   Ephemeris nr: %6d  Last JED = %24.14g",s.NRW,s.DB[2]);
 
     /* WRITE OUTPUT TO THE OUTPUT BINARY FILE (VARIABLES;CONSTANTS; ETC.): */
-    fwrite(&KSIZE,sizeof(int), 1, fp1);
+    fwrite(&KSIZE,sizeof(KSIZE), 1, fp1);
     for (I = 1; I <= NCON; ++I)
         fwrite(CNAM[I],strlen(CNAM[I])+1,1, fp1);
 
@@ -389,13 +389,13 @@ int main(void)
         fwrite(&SS[I],sizeof(double), 1, fp1);
     fwrite(&AU,sizeof(double), 1, fp1);
     fwrite(&EMRAT,sizeof(double), 1, fp1);
-    fwrite(&NUMDE,sizeof(int), 1, fp1);
+    fwrite(&NUMDE,sizeof(NUMDE), 1, fp1);
     for (J = 1; J <= 3; ++J)
         for (I=1; I<=12; ++I)
-            fwrite(&IPT[J][I],sizeof(int), 1, fp1);
+            fwrite(&IPT[J][I],sizeof(**IPT), 1, fp1);
     for (I = 1; I <= 3; ++I)
-        fwrite(&LPT[I],sizeof(int), 1, fp1);
-    fwrite(&NCON,sizeof(int), 1, fp1);
+        fwrite(&LPT[I],sizeof(*LPT), 1, fp1);
+    fwrite(&NCON,sizeof(NCON), 1, fp1);
 
     fclose(fp1);
     fclose(fp0);
